@@ -1,4 +1,4 @@
-from models.aluno import Aluno
+from models.aluno import Aluno #vai importar a classe Aluno e suas informações já pré-definidas da pasta models/aluno
 
 CURSOS = {} #maiúculo porque é variável global (que pode ser acessada em qualquer função dentro do arquivo)
 
