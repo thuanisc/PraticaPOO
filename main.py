@@ -22,3 +22,5 @@ while comando != "sair": #para executar continuamente, até sair
 
         case "sair":
             print("Saindo do sistema.")
+
+#como não tem banco de dados, vai zerar a cada run, apenas na memória.
