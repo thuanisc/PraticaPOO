@@ -46,7 +46,9 @@ class Aluno: #tudo o que estiver dentro da identação (espaçamento) é porque 
 
         aula["data_reposição"] = data_reposicao
         aula["aluno"] = self.matricula
-            return f"Sua aula foi marcada para dia {data_reposicao}."
+        return f"Sua aula foi marcada para dia {data_reposicao}."
 
 
-        pass #passa quando é preenchimento temporário, quer dizer que ainda será feito!
+
+
+##pass - passa quando é preenchimento temporário, quer dizer que ainda será feito!
