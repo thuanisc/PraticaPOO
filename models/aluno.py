@@ -13,7 +13,7 @@ class Aluno: #tudo o que estiver dentro da identação (espaçamento) é porque 
         self.nascimento = nascimento
         self.matricula = str(uuid4()) #hash de 24 caracteres que vai variar, sempre sendo único. Não é string, por isso tem que transformar em texto
         self.ingresso = datetime.timezone #puxa o horário do fuso de onde o sistema estiver (CTRL+space+space faz import da biblioteca automaticamente)
-        self.curso = None #Quer dizer que existe, mas que ainda não tem valor atribuído
+        self.curso = None #Quer dizer que existe, mas que ainda não tem valor atribuído ou self.curso = Curso (nesse caso, curso é obrigatório e ele vai puxar lá de a Classe lá de models\curso.py
         self.notas = []
 
 # COMPORTAMENTOS:
@@ -32,7 +32,7 @@ class Aluno: #tudo o que estiver dentro da identação (espaçamento) é porque 
 
     def fazer_media(self):
         if not self.notas:
-            return "Nenhuma nota fo encontrada."
+            return "Nenhuma nota foi encontrada."
 
         media = sum(self.notas)/len(self.notas) #funções built-in, já embutidas no Python. Primeiro soma as notas dentro da lista de notas, depois divide pela quantidade de notas com o len
         return f"Sua média é de {media}." #retorna a resposta pro sistema

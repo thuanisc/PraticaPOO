@@ -1,12 +1,14 @@
 #Arquivo principal, onde vai fazer roda o projeto.
 
-from app.logica_sistema import cadastrar_aluno, listar_alunos
+from app.logica_sistema import cadastrar_aluno, listar_alunos, detalhar_aluno, deletar_aluno
 
 comando = ""
 while comando != "sair": #para executar continuamente, até sair
     comando = input(f"Escolha uma opção: \n"
                     f"1) Cadastrar Aluno \n"
                     f"2) Listar alunos \n"
+                    f"3) Detalhar aluno \n"
+                    f"4) Deletar aluno \n"
                     f"Digite 'sair' para sair do sistema \n")
 
     match comando:
@@ -19,6 +21,14 @@ while comando != "sair": #para executar continuamente, até sair
 
         case "2":
             print(listar_alunos())
+
+        case "3":
+            matricula = input("Informe a matrícula do aluno: ")
+            print(detalhar_aluno(matricula))
+
+        case "4":
+            matricula = input("Informe a matrícula do aluno: ")
+            print(deletar_aluno(matricula))
 
         case "sair":
             print("Saindo do sistema.")
