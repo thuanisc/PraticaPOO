@@ -1,6 +1,7 @@
 #Arquivo principal, onde vai fazer roda o projeto.
 
-from app.logica_sistema import cadastrar_aluno, listar_alunos, detalhar_aluno, deletar_aluno
+from app.logica_sistema import (cadastrar_aluno, listar_alunos, detalhar_aluno, deletar_aluno, cadastrar_curso, listar_cursos, detalhar_curso, deletar_curso, inserir_aluno_no_curso)
+from app.logica_sistema import CURSOS
 
 comando = ""
 while comando != "sair": #para executar continuamente, até sair
@@ -9,6 +10,11 @@ while comando != "sair": #para executar continuamente, até sair
                     f"2) Listar alunos \n"
                     f"3) Detalhar aluno \n"
                     f"4) Deletar aluno \n"
+                    f"5) Cadastrar Curso \n"
+                    f"6) Listar Cursos \n"
+                    f"7) Detalhar Curso \n"
+                    f"8) Deletar Curso \n"
+                    f"9) Listar alunos aprovados de um curso \n"
                     f"Digite 'sair' para sair do sistema \n")
 
     match comando:
@@ -29,6 +35,32 @@ while comando != "sair": #para executar continuamente, até sair
         case "4":
             matricula = input("Informe a matrícula do aluno: ")
             print(deletar_aluno(matricula))
+
+        case "5":
+            nome = input("Nome do curso: ")
+            duracao = input("Duração do curso: ")
+            professor = input("Professor responsável: ")
+            materias = input("Matérias (separadas por vírgula): ").split(",") if input("Deseja adicionar matérias? (s/n): ").lower() == "s" else None
+            print(cadastrar_curso(nome, duracao, professor, materias))
+
+        case "6":
+            print(listar_cursos())
+
+        case "7":
+            nome = input("Nome do curso: ")
+            print(detalhar_curso(nome))
+
+        case "8":
+            nome = input("Nome do curso: ")
+            print(deletar_curso(nome))
+
+        case "9":
+            nome = input("Nome do curso: ")
+            curso = CURSOS.get(nome)
+            if curso:
+                print(curso.listar_alunos_aprovados())
+            else:
+                print("Curso não encontrado.")
 
         case "sair":
             print("Saindo do sistema.")
